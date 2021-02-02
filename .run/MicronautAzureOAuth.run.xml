@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MicronautAzureOAuth" type="Application" factoryName="Application">
+    <envs>
+      <env name="OAUTH_CLIENT_ID" value="{placeholder}" />
+      <env name="OAUTH_CLIENT_SECRET" value="{placeholder}" />
+      <env name="OAUTH_TENANT_ID" value="{placeholder}" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.odhekar.Application" />
+    <module name="MicronautAzureOAuth.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

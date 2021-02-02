@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: micronautAzureOAuth
+  security:
+    authentication: idtoken
+    oauth2:
+      clients:
+        default:
+          client-id: ${OAUTH_CLIENT_ID}
+          client-secret: ${OAUTH_CLIENT_SECRET}
+          openid:
+            issuer: "http://login.microsoftonline.com/${OAUTH_TENANT_ID}/v2.0"
+            jwks-uri: "http://login.microsoftonline.com/${OAUTH_TENANT_ID}/v2.0/keys"

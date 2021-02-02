@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "119fd7ab-9330-4d9c-921b-4ce6cf88c1f8",
+		"name": "MicronautAzureOAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET-authenticated",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/authenticated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"authenticated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-anonymous",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/anonymous",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"anonymous"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-SP-BearerToken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "api://{{OAUTH_CLIENT_ID}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://login.microsoftonline.com/{{OAUTH_TENANT_ID}}/v2.0",
+					"protocol": "http",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"{{OAUTH_TENANT_ID}}",
+						"v2.0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "OAUTH_CLIENT_SECRET",
+			"value": "hello-world"
+		},
+		{
+			"key": "OAUTH_CLIENT_ID",
+			"value": "hello-world"
+		},
+		{
+			"key": "OAUTH_TENANT_UD",
+			"value": "hello-world"
+		},
+		{
+			"key": "jwToken",
+			"value": "hello-world"
+		}
+	]
+}
